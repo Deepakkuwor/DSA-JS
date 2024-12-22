@@ -23,11 +23,13 @@ class Stack {
     }
 
     pop() {
-        if (this.top){
+        if (!this.isEmpty()){
             let tempTop = this.top;
             this.top = this.top.previous;
             tempTop.previous = null;
             this.length--;
+        } else {
+            console.log("Stack is empty cannot pop an item");
         }
     }
 
@@ -36,8 +38,10 @@ class Stack {
     }
 
     peek() {
-        if(this.top) {
+        if(!this.isEmpty()) {
             return this.top.data;
+        } else {
+            return "Stack is empty cannot peek an item";
         }
     }
 
@@ -46,23 +50,28 @@ class Stack {
     }
 
     view() {
-        if (this.top) {
+        if (!this.isEmpty()) {
             let tempTop = this.top;
             
             while(tempTop) {
                 console.log("|" + tempTop.data + "|");
                 tempTop = tempTop.previous;
             }
+        } else {
+            console.log("Stack is empty");
         }
     }
 }
 
 const stack = new Stack();
+stack.view();
 stack.push(5);
 stack.push(10);
 stack.push(15);
-stack.view();
 console.log("Size: " + stack.size());
+stack.pop();
+stack.pop();
+stack.pop();
 stack.pop();
 stack.view();
 console.log("Size: " + stack.size());
