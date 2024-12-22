@@ -13,7 +13,7 @@ class Stack {
 
     push(data) {
         const newNode = new Node(data);
-        if (!this.top) {
+        if (this.isEmpty()) {
             this.top = newNode;
         } else {
             newNode.previous = this.top;
@@ -29,6 +29,10 @@ class Stack {
             tempTop.previous = null;
             this.length--;
         }
+    }
+
+    isEmpty() {
+        return this.length === 0;
     }
 
     peek() {
