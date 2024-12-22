@@ -31,6 +31,12 @@ class Stack {
         }
     }
 
+    peek() {
+        if(this.top) {
+            return this.top.data;
+        }
+    }
+
     size() {
         return this.length;
     }
@@ -56,4 +62,5 @@ console.log("Size: " + stack.size());
 stack.pop();
 stack.view();
 console.log("Size: " + stack.size());
+console.log("Top Element: " + stack.peek());
 
